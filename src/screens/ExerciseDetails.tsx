@@ -7,15 +7,21 @@ import ItemList from '~/components/ItemList';
 import AddExerciseModal from '~/components/AddExercisesModal';
 
 const ExerciseDetails: React.FC = () => {
+    const [exercises, setExercises] = useState(exerciseData.exercises);
     const [selectedExercise, setSelectedExercise] = useState(exerciseData.exercises[0]);
-    const [isEdit, setIsEdit] = useState(true);
+    const [isEdit, setIsEdit] = useState(false);
     const [showModal, setShowModal] = useState(false);
     
 
   const toggleEditMode = () => {
     setIsEdit(!isEdit);
   };
-
+  const removeExercise = (exerciseName: string) => {
+    setExercises(prevExercises => prevExercises.filter(ex => ex.name !== exerciseName));
+    if (selectedExercise.name === exerciseName) {
+        setSelectedExercise(exercises.length > 1 ? exercises[0] : null);
+    }
+};
   return (
     <View className="p-5 mt-10">
       <View className="flex-row items-center mb-4">
@@ -25,11 +31,17 @@ const ExerciseDetails: React.FC = () => {
         <Text className="text-2xl font-bold">{exerciseData.workout_name}</Text>
       </View>
       <FlatList
-        data={exerciseData.exercises}
+        data={exercises}
         horizontal
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => (
-          <ItemList item={item} setSelectedExercise={setSelectedExercise} selectedExercise={selectedExercise} setIsEdit= {setIsEdit} isEdit={isEdit} />
+          <ItemList 
+              item={item} 
+              setSelectedExercise={setSelectedExercise} 
+              selectedExercise={selectedExercise} 
+              setIsEdit= {setIsEdit} 
+              isEdit={isEdit} 
+              removeExercise={removeExercise} />
         )}
         ListFooterComponent={
           isEdit ? <TouchableOpacity
