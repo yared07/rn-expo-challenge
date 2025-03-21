@@ -1,7 +1,15 @@
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 
-const Detail: React.FC = ({ selectedExercise }) => {
+interface DetailProps {
+  selectedExercise: {
+    name: string;
+    gif_asset_url: string;
+    equipment: string;
+  };
+}
+
+const Detail: React.FC<DetailProps> = ({ selectedExercise }) => {
   return (
     <View className="mt-6 items-center bg-white p-5">
       <View className="flex-row items-center justify-between w-full">

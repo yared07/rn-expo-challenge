@@ -1,14 +1,17 @@
-import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import exerciseData from '~/data/dummyData';
 import Detail from '~/components/Detail';
 import ItemList from '~/components/ItemList';
+import AddExerciseModal from '~/components/AddExercisesModal';
 
 
 const ExerciseDetails: React.FC = () => {
     const [selectedExercise, setSelectedExercise] = useState(exerciseData.exercises[0]);
     const [isEdit, setIsEdit] = useState(true);
+    const [showModal, setShowModal] = useState(false);
+    
   return (
     <View className="p-5 mt-10">
       <View className="flex-row items-center mb-4">
@@ -37,6 +40,21 @@ const ExerciseDetails: React.FC = () => {
           <Text className="text-black text-3xl">Save Changes</Text>
           </TouchableOpacity>
       </View></View>}
+
+
+    <Pressable onPress={() => setShowModal(true)}>
+      <Text>Open Add Exercises</Text>
+    </Pressable>
+
+    <AddExerciseModal
+      visible={showModal}
+      onClose={() => setShowModal(false)}
+      onAddSelected={(newExercises) => {
+        // Merge them into your workout or edit-mode list
+      }}
+    />
+ 
+
     </View>
   );
 };
