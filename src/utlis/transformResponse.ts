@@ -1,5 +1,5 @@
-import { Exercise } from '../types/exercise';
 import { APIExerciseResponse } from '../services/fetchExercises';
+import { Exercise } from '../types/exercise';
 
 export function transformFetchedToLocal(item: APIExerciseResponse): Exercise {
   const animation = item.maleGifUrl || item.femaleGifUrl || '';
