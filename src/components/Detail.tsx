@@ -1,4 +1,5 @@
 import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Image as Image2 } from 'expo-image';
 import React from 'react';
 
 interface DetailProps {
@@ -20,10 +21,10 @@ const Detail: React.FC<DetailProps> = ({ selectedExercise }) => {
         </TouchableOpacity>
       </View>
       <View className="w-full items-center relative"> {/* Added 'relative' for positioning */}
-        <Image
+        <Image2
           source={{ uri: selectedExercise.gif_asset_url }}
-          className="w-full h-96 rounded-lg border border-gray-300"
-          resizeMode="contain"
+          style={{ width: '100%', height: 300, borderRadius: 10, borderWidth: 1, borderColor: 'gray' }}
+          contentFit="contain"
         />
         {/* Equipment text positioned absolutely */}
         <View className="absolute bottom-2 left-2 bg-white flex-row  rounded-md px-2 py-1">
