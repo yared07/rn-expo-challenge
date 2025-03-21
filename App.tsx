@@ -1,13 +1,14 @@
-import { ScreenContent } from 'components/ScreenContent';
+import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 import './global.css';
+import ExerciseDetails from '~/screens/ExerciseDetails';
 
 export default function App() {
   return (
-    <>
-      <ScreenContent title="Home" path="App.tsx" />
-      <StatusBar style="auto" />
-    </>
+    <View className="flex-1 bg-gray-100">
+      <ExerciseDetails />
+      <StatusBar style="light" />
+      </View>
   );
 }
