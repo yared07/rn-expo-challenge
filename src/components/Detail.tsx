@@ -6,7 +6,8 @@ const Detail: React.FC = ({ selectedExercise }) => {
     <View className="mt-6 items-center bg-white p-5">
       <View className="flex-row items-center justify-between w-full">
         <Text className="text-3xl mb-2">{selectedExercise.name}</Text>
-        <TouchableOpacity className="bg-yellow-500 px-4 rounded-md mb-4">
+        <TouchableOpacity className="bg-[#FFE74C] p-3 rounded-3xl mb-4 flex-row items-center">
+        <Image source={ require('../../assets/images/arrows-right-left.png') } className='mr-2' />
           <Text className="text-black text-3xl">Replace</Text>
         </TouchableOpacity>
       </View>

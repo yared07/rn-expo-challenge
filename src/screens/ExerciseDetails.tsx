@@ -8,6 +8,7 @@ import ItemList from '~/components/ItemList';
 
 const ExerciseDetails: React.FC = () => {
     const [selectedExercise, setSelectedExercise] = useState(exerciseData.exercises[0]);
+    const [isEdit, setIsEdit] = useState(true);
   return (
     <View className="p-5 mt-10">
       <View className="flex-row items-center mb-4">
@@ -21,11 +22,21 @@ const ExerciseDetails: React.FC = () => {
         horizontal
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => (
-         <ItemList item={item} setSelectedExercise={setSelectedExercise} />
+         <ItemList item={item} setSelectedExercise={setSelectedExercise} selectedExercise={selectedExercise} />
         )}
         showsHorizontalScrollIndicator={false}
       />
       <Detail selectedExercise={selectedExercise} />
+
+      {isEdit && <View>
+         <View className='flex-row justify-between items-center bg-white p-1 m-10 rounded-3xl'>
+        <TouchableOpacity className="bg-gray-300 py-3 px-10 rounded-3xl">
+          <Text className="text-black text-3xl">Discard</Text>
+          </TouchableOpacity>
+          <TouchableOpacity className="bg-[#FFE74C] py-3 px-5 rounded-3xl ">
+          <Text className="text-black text-3xl">Save Changes</Text>
+          </TouchableOpacity>
+      </View></View>}
     </View>
   );
 };
