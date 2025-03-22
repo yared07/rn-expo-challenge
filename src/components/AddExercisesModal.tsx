@@ -102,32 +102,40 @@ export default function AddExerciseModal({
   return (
     <Modal
       visible={visible}
-      transparent={false}
+      transparent={true}
       animationType="slide"
       onRequestClose={onClose}
-      className="rounded-lg">
-      <View className="flex-1 bg-white">
-        <Animated.View style={{ transform: [{ translateY: pan.y }] }} {...panResponder.panHandlers}>
+    >
+      <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'flex-end' }}>
+        <Animated.View
+          style={{
+            height: '83%',
+            backgroundColor: 'white',
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
+            transform: [{ translateY: pan.y }]
+          }}
+          {...panResponder.panHandlers}
+        >
           <View className="h-5 w-full items-center justify-center">
             <Ionicons name="remove" size={28} color="gray" />
           </View>
-        </Animated.View>
         <View className="px-4">
           <Text className="text-lg font-semibold">Add Exercises</Text>
         </View>
 
-        <View className="mb-2 px-4">
-          <View className="flex-row items-center rounded-3xl bg-gray-100 px-3 py-2">
+        <View className="mb-2 flex-row items-center justify-between px-4 mt-5">
+          <View className="flex-row items-center rounded-2xl bg-gray-100 px-3">
             <Ionicons name="search" size={18} color="#999" />
             <TextInput
               placeholder="Search here"
               placeholderTextColor="#999"
-              className="ml-2 flex-1 text-base text-gray-800"
+              className="ml-2 text-base text-gray-800 w-4/5"
             />
-            <Pressable onPress={() => console.log('Filter pressed')}>
-              <Ionicons name="filter" size={20} color="#999" />
-            </Pressable>
           </View>
+          <Pressable onPress={() => console.log('Filter pressed')}>
+              <Image source={require('../../assets/images/filter.png')} />
+          </Pressable>
         </View>
 
         <View className="mb-1 px-4">
@@ -189,6 +197,7 @@ export default function AddExerciseModal({
             <Ionicons name="add-outline" size={20} color="#000" />
           </Pressable>
         </View>
+        </Animated.View>
       </View>
     </Modal>
   );

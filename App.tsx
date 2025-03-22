@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { StatusBar } from 'expo-status-bar';
 import { View, SafeAreaView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -17,7 +16,6 @@ export default function App() {
           <GestureHandlerRootView>
             <ExerciseDetails />
           </GestureHandlerRootView>
-          <StatusBar style="light" />
         </View>
       </SafeAreaView>
     </QueryClientProvider>

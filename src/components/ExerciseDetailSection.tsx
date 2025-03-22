@@ -1,6 +1,6 @@
-import { Image } from 'expo-image';
+import { Image as Image2 } from 'expo-image';
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 interface DetailProps {
   selectedExercise: {
@@ -10,20 +10,20 @@ interface DetailProps {
   };
 }
 
-const Detail: React.FC<DetailProps> = ({ selectedExercise }) => {
+const ExerciseDetailSection: React.FC<DetailProps> = ({ selectedExercise }) => {
   return (
     <View className="mt-6 items-center bg-white p-5">
       <View className="w-full flex-row items-center justify-between">
-        <Text className="mb-2 text-3xl">{selectedExercise.name}</Text>
-        <TouchableOpacity className="mb-4 flex-row items-center rounded-3xl bg-[#FFE74C] p-3">
+        <Text className="mb-2 text-2xl">{selectedExercise.name}</Text>
+        <TouchableOpacity className="mb-4 flex-row items-center rounded-3xl bg-[#FFE74C] p-3 px-6">
           <Image source={require('../../assets/images/arrows-right-left.png')} className="mr-2" />
-          <Text className="text-3xl text-black">Replace</Text>
+          <Text className="text-xl text-black">Replace</Text>
         </TouchableOpacity>
       </View>
       <View className="relative w-full items-center">
         {' '}
         {/* Added 'relative' for positioning */}
-        <Image
+        <Image2
           source={{ uri: selectedExercise.gif_asset_url }}
           style={{
             width: '100%',
@@ -58,4 +58,4 @@ const Detail: React.FC<DetailProps> = ({ selectedExercise }) => {
   );
 };
 
-export default Detail;
+export default ExerciseDetailSection;
