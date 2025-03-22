@@ -40,16 +40,16 @@ const ExerciseDetailSection: React.FC<DetailProps> = ({ selectedExercise }) => {
           <Text className=" capitalize text-gray-500 ">{selectedExercise.equipment}</Text>
         </View>
       </View>
-      <View className="mt-4 w-full flex-row justify-between px-8">
-        <TouchableOpacity className="flex-row rounded-3xl border-2 border-black bg-white px-4 py-2">
+      <View className="mt-4 w-full flex-row justify-between">
+        <TouchableOpacity className="flex-row rounded-3xl border-2 border-black bg-white px-2 py-2 mr-1">
           <Image source={require('../../assets/images/document.png')} className="mr-2" />
           <Text className="font-semibold text-black">Instructions</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row rounded-3xl border-2 border-black bg-white px-4 py-2">
+        <TouchableOpacity className="flex-row rounded-3xl border-2 border-black bg-white px-2 py-2 mr-1">
           <Image source={require('../../assets/images/warm-up.png')} className="mr-2" />
           <Text className="font-semibold text-black">Warm up</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row rounded-3xl border-2 border-black bg-white px-4 py-2">
+        <TouchableOpacity className="flex-row rounded-3xl border-2 border-black bg-white px-2 py-2">
           <Image source={require('../../assets/images/question-mark.png')} className="mr-2" />
           <Text className="font-semibold text-black">FAQ</Text>
         </TouchableOpacity>
