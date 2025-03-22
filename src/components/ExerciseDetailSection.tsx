@@ -41,11 +41,11 @@ const ExerciseDetailSection: React.FC<DetailProps> = ({ selectedExercise }) => {
         </View>
       </View>
       <View className="mt-4 w-full flex-row justify-between">
-        <TouchableOpacity className="flex-row rounded-3xl border-2 border-black bg-white px-2 py-2 mr-1">
+        <TouchableOpacity className="mr-1 flex-row rounded-3xl border-2 border-black bg-white px-2 py-2">
           <Image source={require('../../assets/images/document.png')} className="mr-2" />
           <Text className="font-semibold text-black">Instructions</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row rounded-3xl border-2 border-black bg-white px-2 py-2 mr-1">
+        <TouchableOpacity className="mr-1 flex-row rounded-3xl border-2 border-black bg-white px-2 py-2">
           <Image source={require('../../assets/images/warm-up.png')} className="mr-2" />
           <Text className="font-semibold text-black">Warm up</Text>
         </TouchableOpacity>
